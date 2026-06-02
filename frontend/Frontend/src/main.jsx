@@ -13,7 +13,7 @@ import EditProfile from "./dashboard/EditProfile.jsx";
 import Requests from "./dashboard/Requests.jsx";
 import Chats from "./dashboard/Chats.jsx";
 import Sessions from "./dashboard/Sessions.jsx";
-import PublicProfile from "./pages/Publicprofile.jsx";
+import Publicprofile from "./pages/Publicprofile.jsx";
 import ProtectedRoute from "./components/ProtectRoute.jsx";
 import PublicOnlyRoute from "./components/publicOnlyRoute.jsx";
 import ForgotPassword from "./landing_page/Login/ForgotPassword.jsx";
