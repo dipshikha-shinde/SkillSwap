@@ -13,7 +13,7 @@ import EditProfile from "./dashboard/EditProfile.jsx";
 import Requests from "./dashboard/Requests.jsx";
 import Chats from "./dashboard/Chats.jsx";
 import Sessions from "./dashboard/Sessions.jsx";
-import Publicprofile from "./pages/Publicprofile.jsx";
+import PublicProfile from "./pages/PublicProfile.jsx";
 import ProtectedRoute from "./components/ProtectRoute.jsx";
 import PublicOnlyRoute from "./components/publicOnlyRoute.jsx";
 import ForgotPassword from "./landing_page/Login/ForgotPassword.jsx";
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
           </PublicOnlyRoute>
         ),
       },
-      { path: "profile/:id", element: <Publicprofile /> },
+      { path: "profile/:id", element: <PublicProfile /> },
       {
         path: "dashboard",
         element: (

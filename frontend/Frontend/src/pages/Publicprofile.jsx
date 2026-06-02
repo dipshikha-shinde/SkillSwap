@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { API_BASE_URL } from "../config";
 
-function Publicprofile() {
+function PublicProfile() {
   const { id } = useParams();
   const [teacher, setTeacher] = useState(null);
   const [reviews, setReviews] = useState([]);
@@ -170,4 +170,4 @@ function Publicprofile() {
   );
 }
 
-export default Publicprofile;
+export default PublicProfile;
