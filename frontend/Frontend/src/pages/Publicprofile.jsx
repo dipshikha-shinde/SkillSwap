@@ -170,4 +170,4 @@ function Publicprofile() {
   );
 }
 
-export default PublicProfile;
+export default Publicprofile;
