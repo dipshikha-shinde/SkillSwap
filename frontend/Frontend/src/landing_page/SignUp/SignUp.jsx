@@ -170,7 +170,7 @@ function SignUp() {
       </div>
 
       {showSuccessModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-[100] px-4">
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-100 px-4">
           <div className="bg-white w-full max-w-md rounded-2xl shadow-xl p-6">
             <h2 className="text-2xl font-bold text-gray-900">
               Account Created
