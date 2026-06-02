@@ -14,7 +14,6 @@ import sessionRoutes from "./routes/sessionRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
 import communityRoutes from "./routes/communityRoutes.js";
 import notificationRoutes from "./routes/notificationRoutes.js";
-import videoRoutes from "./routes/videoRoutes.js";
 
 dotenv.config();
 console.log("EMAIL_USER:", process.env.EMAIL_USER);
@@ -47,7 +46,6 @@ app.use("/api/sessions", sessionRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/community", communityRoutes);
 app.use("/api/notifications", notificationRoutes);
-app.use("/api/video", videoRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

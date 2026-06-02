@@ -19,9 +19,7 @@ import PublicOnlyRoute from "./components/publicOnlyRoute.jsx";
 import ForgotPassword from "./landing_page/Login/ForgotPassword.jsx";
 import Community from "./dashboard/Community.jsx";
 import Notifications from "./dashboard/Notifications.jsx";
-import SessionCall from "./dashboard/SessionCall.jsx";
-import VideoProvider from "./video/VideoProvider.jsx";
-import LiveCall from "./dashboard/LiveCall.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -103,32 +101,13 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      {
-        path: "session-call/:sessionId",
-        element: (
-          <ProtectedRoute>
-            <SessionCall />
-          </ProtectedRoute>
-        ),
-      },
     ],
-  },
-
-  {
-    path: "/call/:callId",
-    element: (
-      <ProtectedRoute>
-        <LiveCall />
-      </ProtectedRoute>
-    ),
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <VideoProvider>
-    <>
-      <RouterProvider router={router} />
-      <Toaster position="top-right" reverseOrder={false} />
-    </>
-  </VideoProvider>
+  <>
+    <RouterProvider router={router} />
+    <Toaster position="top-right" reverseOrder={false} />
+  </>
 );

@@ -2,11 +2,8 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../config";
 import { useNavigate } from "react-router-dom";
-import { useStreamVideoClient } from "@stream-io/video-react-sdk";
-import { FaVideo } from "react-icons/fa";
 
 function Chats() {
-  const videoClient = useStreamVideoClient();
   const navigate = useNavigate();
 
   const [chats, setChats] = useState([]);
@@ -95,104 +92,6 @@ function Chats() {
       : request.sender;
   };
 
-  const handleStartVideoCall = async () => {
-    console.log("selectedRequest:", selectedRequest);
-    console.log("currentUser:", currentUser);
-    console.log("videoClient:", videoClient);
-    try {
-      if (!selectedRequest) {
-        toast.error("Select a chat first");
-        return;
-      }
-
-      if (!currentUser) {
-        toast.error("User not loaded yet");
-        return;
-      }
-
-      if (!videoClient) {
-        toast.error("Video client not ready yet");
-        return;
-      }
-
-      const otherUser = getOtherUser(selectedRequest);
-
-      if (!otherUser?._id) {
-        toast.error("Could not find the other user");
-        return;
-      }
-
-      const callId = crypto.randomUUID().trim();
-      const call = videoClient.call("default", callId);
-
-      await call.getOrCreate({
-        ring: true,
-        video: true,
-        data: {
-          custom: { type: "video" },
-          members: [
-            { user_id: String(getCurrentUserId()) },
-            { user_id: String(otherUser._id) },
-          ],
-        },
-      });
-
-      toast.success("Calling...");
-      navigate(`/call/${callId}`);
-    } catch (error) {
-      console.error("START VIDEO CALL ERROR:", error);
-      toast.error("Failed to start video call");
-    }
-  };
-  const handleStartVoiceCall = async () => {
-    console.log("selectedRequest:", selectedRequest);
-    console.log("currentUser:", currentUser);
-    console.log("videoClient:", videoClient);
-    try {
-      if (!selectedRequest) {
-        toast.error("Select a chat first");
-        return;
-      }
-
-      if (!currentUser) {
-        toast.error("User not loaded yet");
-        return;
-      }
-
-      if (!videoClient) {
-        toast.error("Video client not ready yet");
-        return;
-      }
-
-      const otherUser = getOtherUser(selectedRequest);
-
-      if (!otherUser?._id) {
-        toast.error("Could not find the other user");
-        return;
-      }
-
-      const callId = crypto.randomUUID().trim();
-      const call = videoClient.call("default", callId);
-
-      await call.getOrCreate({
-        ring: true,
-        video: false,
-        data: {
-          custom: { type: "audio" },
-          members: [
-            { user_id: String(getCurrentUserId()) },
-            { user_id: String(otherUser._id) },
-          ],
-        },
-      });
-
-      toast.success("Calling...");
-      navigate(`/call/${callId}`);
-    } catch (error) {
-      console.error("START VOICE CALL ERROR:", error);
-      toast.error("Failed to start voice call");
-    }
-  };
   const handleSend = async (e) => {
     e.preventDefault();
 

@@ -1,7 +1,6 @@
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../config";
-import { Link } from "react-router-dom";
 
 function Sessions() {
   const [sessions, setSessions] = useState([]);
@@ -337,11 +336,6 @@ function Sessions() {
                       Link: {session.meetingLink}
                     </p>
                   )}
-                  <Link to={`/session-call/${session._id}`}>
-                    <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition mt-3">
-                      Join Video Call
-                    </button>
-                  </Link>
 
                   {session.notes && (
                     <p className="text-sm text-gray-600 mt-2">
