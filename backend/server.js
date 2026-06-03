@@ -27,6 +27,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "http://localhost:5174",
       "https://skill-swap-kappa-nine.vercel.app",
     ],
     credentials: true,
