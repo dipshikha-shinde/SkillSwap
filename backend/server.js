@@ -25,7 +25,10 @@ connectDB();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://skill-swap-kappa-nine.vercel.app",
+    ],
     credentials: true,
   })
 );
